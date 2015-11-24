@@ -20,7 +20,7 @@ public class PluginWindow extends JFrame {
 		this.bar = new PluginBar();
 		this.panel = new PluginPanel();
 		
-		this.setTitle("TP Plugins");
+		this.setTitle("TP Plugins - Lucas Moura de Oliveira");
 		this.setJMenuBar(bar);
 		this.setContentPane(panel);
 		this.setResizable(true);
