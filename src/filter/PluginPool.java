@@ -13,8 +13,6 @@ public class PluginPool {
 	
 	private Map<String,Plugin> plugins;
 	
-	private String currentPlugin;
-	
 	private PluginPool(){
 		this.plugins = new HashMap<String,Plugin>();
 	}
@@ -39,14 +37,6 @@ public class PluginPool {
 	
 	public Plugin getPlugin(String name){
 		return plugins.get(name);
-	}
-	
-	public void setCurrentPlugin(String plugin){
-		this.currentPlugin = plugin;
-	}
-	
-	public Plugin getCurrentPlugin(){
-		return plugins.get(currentPlugin);
 	}
 
 }

@@ -3,6 +3,7 @@ package window;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import plugins.Plugin;
 import filter.PluginPool;
@@ -32,27 +34,22 @@ public class PluginBar extends JMenuBar implements Observer, ActionListener{
 		add(menuPlugin);
 	}
 	
-	public void addPlugin(String texte, String tooltip, boolean setcurrent){
+	public void addPlugin(String texte, String tooltip, int keystroke){
 		JMenuItem item = new JMenuItem(texte);
 		item.setToolTipText(tooltip);
 		item.addActionListener(this);
-		if(setcurrent)
-			item.setForeground(Color.BLACK);
-		else
-			item.setForeground(Color.GRAY);
+		if(keystroke < 12)
+			item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1+keystroke,0));
 		menuPlugin.add(item);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		menuPlugin.removeAll();
-		boolean updateCurrent = pool.getCurrentPlugin() != null;
-		for(String s : pool.getPlugins()){
-			if(updateCurrent && s.equals(pool.getCurrentPlugin().getName())){
-				addPlugin(s, pool.getPlugin(s).getDescription(), true);
-			}else{
-				addPlugin(s, pool.getPlugin(s).getDescription(), false);
-			}
+		String s;
+		for(int i=0; i< pool.getPlugins().size(); i++){
+			s = pool.getPlugins().get(i);
+			addPlugin(s, pool.getPlugin(s).getDescription(), i);
 		}
 	}
 
@@ -60,22 +57,13 @@ public class PluginBar extends JMenuBar implements Observer, ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JMenuItem item = (JMenuItem)e.getSource();
 		String pname = item.getText();
-		setForeground(item);
 		Plugin p = pool.getPlugin(pname);
 		if(p != null){
 			PluginWindow.getInstance().getPanel().applyPlugin(p);
-			pool.setCurrentPlugin(pname);
 		}else{
 			Logger l = Logger.getLogger(PluginBar.class.getName());
 			l.log(Level.SEVERE, "Plugin " + pname + " not found");
 		}
-	}
-	
-	public void setForeground(JMenuItem item){
-		for(int i = 0;i < menuPlugin.getItemCount();i++){
-			menuPlugin.getItem(i).setForeground(Color.GRAY);;
-		}
-		item.setForeground(Color.BLACK);
 	}
 
 }

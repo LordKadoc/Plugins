@@ -2,6 +2,7 @@ package window;
 
 import javax.swing.JFrame;
 
+
 public class PluginWindow extends JFrame {
 	
 	/**

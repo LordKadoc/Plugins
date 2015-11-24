@@ -26,11 +26,8 @@ public class PluginFinder extends Observable implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("***** Listing plugins *****");
 		List<Plugin> plugins = new ArrayList<Plugin>();
 		for(File f : listPlugins()){
-			System.out.println("Plugin : " + f.getName());
-			//PluginWindow.getInstance().getBar().addPlugin(f.getName().toUpperCase());
 			plugins.add(filter.getPlugin(f.getName()));
 		}
 		PluginPool.getInstance().updatePool(plugins);
