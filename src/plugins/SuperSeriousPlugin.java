@@ -18,12 +18,20 @@ public class SuperSeriousPlugin implements Plugin {
 		PluginWindow.getInstance().getPanel().removeAll();
 		PluginWindow.getInstance().getPanel().add(gifpanel, BorderLayout.CENTER);
 		
-		gifpanel.add(new JLabel(new ImageIcon("travolta.gif")));
+		/*gifpanel.add(new JLabel(new ImageIcon("allhailthehypnotoad.gif")));
+		
+		gifpanel.add(new JLabel(new ImageIcon("allhailthehypnotoad.gif")));
+		gifpanel.add(new JLabel(new ImageIcon("allhailthehypnotoad.gif")));
+		
+		gifpanel.add(new JLabel(new ImageIcon("allhailthehypnotoad.gif")));
+		gifpanel.add(new JLabel(new ImageIcon("allhailthehypnotoad.gif")));*/
+		
 		gifpanel.add(new JLabel(new ImageIcon("nyancat.gif")));
+		gifpanel.add(new JLabel(new ImageIcon("travolta.gif")));
 		gifpanel.add(new JLabel(new ImageIcon("dramatic.gif")));
 		gifpanel.add(new JLabel(new ImageIcon("mask.gif")));
 		gifpanel.add(new JLabel(new ImageIcon("go-bwah.gif")));
-		gifpanel.add(new JLabel(new ImageIcon("michaelscott.gif")));
+		gifpanel.add(new JLabel(new ImageIcon("snoop.gif")));
 		
 		gifpanel.setBackground(Color.BLACK);
 		
