@@ -9,7 +9,7 @@ public class LowerCasePlugin implements Plugin {
 
 	@Override
 	public String getName() {
-		return "LowerCase Plugin v1.0";
+		return "Lower case"; 
 	}
 
 	@Override

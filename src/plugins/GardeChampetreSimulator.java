@@ -1,6 +1,6 @@
 package plugins;
 
-import window.PluginWindow;
+import main.PluginWindow;
 import fractalfactory.canvas.MainPanel;
 import fractalfactory.tree.Tree;
 
@@ -8,10 +8,17 @@ public class GardeChampetreSimulator implements Plugin {
 
 	@Override
 	public String transform(String text) {
-		PluginWindow.getInstance().setContentPane(new MainPanel(new Tree()));
-		PluginWindow.getInstance().pack();
-		PluginWindow.getInstance().setLocationRelativeTo(null);
-		PluginWindow.getInstance().revalidate();
+		
+		MainPanel treePanel = new MainPanel(new Tree());
+		PluginWindow w = PluginWindow.getInstance();
+		
+		w.getContentPane().removeAll();
+		w.getContentPane().setPreferredSize(treePanel.getPreferredSize());
+		w.pack();
+		w.setLocationRelativeTo(null);
+		w.revalidate();
+		w.getContentPane().add(treePanel);
+		
 		return text;
 	}
 

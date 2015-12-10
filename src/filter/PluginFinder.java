@@ -26,10 +26,12 @@ public class PluginFinder extends Observable implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		List<Plugin> plugins = new ArrayList<Plugin>();
 		for(File f : listPlugins()){
-			plugins.add(filter.getPlugin(f.getName()));
+			plugins.add(filter.getPlugin(directory, f.getName()));
 		}
+		
 		PluginPool.getInstance().updatePool(plugins);
 		notifyObservers();
 	}
@@ -38,6 +40,10 @@ public class PluginFinder extends Observable implements ActionListener{
 	public void notifyObservers(){
 		this.setChanged();
 		super.notifyObservers();
+	}
+
+	public void setDirectory(File selectedFile) {
+		this.directory = selectedFile;
 	}
 	
 

@@ -4,7 +4,9 @@ import java.awt.Color;
 
 import javax.swing.JTextArea;
 
-import window.PluginWindow;
+import main.PluginWindow;
+
+
 
 public class SuperSeriousRetourPlugin implements Plugin {
 
@@ -18,17 +20,17 @@ public class SuperSeriousRetourPlugin implements Plugin {
 
 	@Override
 	public String getName() {
-		return "Boring plugin2";
+		return "Creepy plugin";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Normal plugin, nothing to see here2";
+		return "The computer ! He ... he is alive ..";
 	}
 	
 	class ThreadPlugin extends Thread{
 		
-		private String text="bonjour lucas...\nJe sais que tu m'entends....\nPourquoi est ce que tu ne me réponds pas ?\nTu ne veux plus jouer avec moi, Lucas ?";
+		private String text="bonjour Rémy...\nJe sais que tu m'entends....\nPourquoi est ce que tu ne me réponds pas ?\nTu ne veux plus jouer avec moi, Rémy ?\nComment va Justine dis moi ?\n ça serait dommage qu'il lui arrive quelque chose ...\n";
 		private JTextArea ja;
 		
 		ThreadPlugin(JTextArea ja){

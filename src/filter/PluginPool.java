@@ -22,13 +22,13 @@ public class PluginPool {
 	}
 	
 	public void updatePool(List<Plugin> newList){
-		plugins.clear();
+		clear();
 		for(Plugin p : newList){
 			plugins.put(p.getName(), p);
 		}
 	}
 	
-	public List<String> getPlugins(){
+	public List<String> getPluginNames(){
 		List<String> list = new ArrayList<String>();
 		for(String s : plugins.keySet())
 			list.add(s);
@@ -37,6 +37,10 @@ public class PluginPool {
 	
 	public Plugin getPlugin(String name){
 		return plugins.get(name);
+	}
+	
+	public void clear(){
+		this.plugins.clear();
 	}
 
 }

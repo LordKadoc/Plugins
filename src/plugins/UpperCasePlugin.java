@@ -9,7 +9,7 @@ public class UpperCasePlugin implements Plugin {
 
 	@Override
 	public String getName() {
-		return "UpperCase Plugin v1.0";
+		return "Upper case";
 	}
 
 	@Override

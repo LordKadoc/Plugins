@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import window.PluginWindow;
+import main.PluginWindow;
+
+
 
 public class SuperSeriousPlugin3TheEyeOfTheTiger implements Plugin{
 
@@ -30,12 +32,12 @@ public class SuperSeriousPlugin3TheEyeOfTheTiger implements Plugin{
 
 	@Override
 	public String getName() {
-		return "Plugin";
+		return "MLG Frog";
 	}
 
 	@Override
 	public String getDescription() {
-		return "plugin";
+		return "Frog spawning randomly on the screen";
 	}
 	
 	class ThreadPlugin extends Thread{

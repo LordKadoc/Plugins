@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import window.PluginWindow;
+import main.PluginWindow;
+
+
 
 public class SuperSeriousPlugin implements Plugin {
 
@@ -43,12 +45,12 @@ public class SuperSeriousPlugin implements Plugin {
 
 	@Override
 	public String getName() {
-		return "Boring plugin";
+		return "Multi gif party";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Normal plugin, nothing to see here";
+		return "Famous gifs of the Internet";
 	}
 	
 }
